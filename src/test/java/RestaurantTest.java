@@ -4,6 +4,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -12,6 +14,20 @@ import static org.mockito.Mockito.*;
 class RestaurantTest {
     Restaurant restaurant;
     //REFACTOR ALL THE REPEATED LINES OF CODE
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>ORDER<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+    @Test
+    public void getOrderValue_should_return_total_value_of_given_items(){
+        List<String> items = Arrays.asList("Sweet corn soup","Vegetable lasagne");
+
+        restaurant = getRestaurant();
+
+        int orderValue = restaurant.getOrderValue(items);
+
+        assertEquals(orderValue, 388);
+
+    }
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>OPEN/CLOSED<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     //-------FOR THE 2 TESTS BELOW, YOU MAY USE THE CONCEPT OF MOCKING, IF YOU RUN INTO ANY TROUBLE
